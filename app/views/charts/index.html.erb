@@ -1,0 +1,44 @@
+<h1>Patient charts</h1>
+
+<%= render 'layouts/identifier' %>
+<%= link_to 'Patient Listing', root_path, class:"btn btn-dark" %>
+
+<table class="table table-striped table-hover">
+  <tr>
+    <th>Updated on</th>
+    <th>S.O.A.P.</th>
+    <th>Acupoints</th>
+    <th>Medicines</th>
+    <th>Formulae</th>
+    <th>Other Cares</th>
+    <th class="col-auto"></th>
+  </tr>
+
+<% @charts.each do |chart| %>
+  <tr>
+    <td><%= chart.tDate %></td>
+    <td><%= chart.soap %></td>
+    <td><%= chart.acuList %></td>
+    <td><%= chart.cMedList %></td>
+    <td><%= chart.cForList %></td>
+    <td><%= chart.oTreats %></td>
+
+    <% @regi_id = chart.regi.id %>
+    <% @chart_id = chart.id %>
+
+    <td>
+      <%= link_to 'Show', [chart.regi, chart], class:"btn btn-primary btn-sm" %>
+      <%= link_to 'Edit', edit_regi_chart_path(chart.regi, chart), class:"btn btn-warning btn-sm" %>
+      <%= link_to 'Destroy', [chart.regi, chart], class:"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Insurance', [chart.regi, chart], class:"btn btn-success btn-sm" %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% @regi_id %>
+<% @chart_id %>
+
+<%= link_to 'New Chart', new_regi_chart_path(params[:regi_id]), class: "btn btn-secondary" %>

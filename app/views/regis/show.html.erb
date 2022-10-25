@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @regi %>
+
+<div>
+  <%= link_to "Edit", edit_regi_path(@regi) %> |
+  <%= link_to "Back to Patients", regis_path %>
+
+  <%= button_to "Delete this record", @regi, method: :delete %>
+</div>
