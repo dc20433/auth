@@ -10,172 +10,224 @@
       </ul>
     </div>
   <% end %>
+ 
+  <div class="row inline">
+    <div class="col-md-2">
+      <%= f.label :vDate, "Updated on", class:"form-label" %>
+      <%= f.date_field :vDate, class: "form-control" %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :vDate %><br />
-    <%= f.date_field :vDate %>
+  <div class="row">
+    <div class="col-md-7">
+      <%= f.label :street, "Street", class:"form-label" %><br />
+      <%= f.text_field :street, value: @patient.street, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :city, "City", class:"form-label" %><br />
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
+    <div class="col-md-1">
+      <%= f.label :state, "State", class:"form-label" %><br />
+      <%= f.text_field :state, class: "form-control" %>
+    </div>
+    <div class="col-md-1">
+      <%= f.label :zip, "Zip Code", class:"form-label" %><br />
+      <%= f.text_field :zip, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :mStat %><br />
-    <%= f.text_field :mStat %>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.label :height, "Height", class:"form-label" %><br />
+      <%= f.number_field :height, in: 4.0..8.0, step: 0.1, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :weight, "Weight", class:"form-label" %><br />
+      <%= f.number_field :weight, in: 50..300, step: 2, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :mStat, "Marital Status", class:"form-label" %><br />
+      <%= f.select :mStat, Patient::MARITAL_STATUS, class: "input-control-lg" %>
+    </div>
+    <div class="col-md-5">
+      <%= f.label :referred, "Referred by", class:"form-label" %><br />
+      <%= f.text_field :referred, class: "form-control" %>
+    </div> 
   </div>
-  <div class="field">
-    <%= f.label :height %><br />
-    <%= f.text_field :height %>
+
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.label :cell, "Cell Phone", class:"form-label" %><br />
+      <%= f.text_field :cell, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :home, "Home Phone", class:"form-label" %><br />
+      <%= f.text_field :home, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :work, "Work Phone", class:"form-label" %><br />
+      <%= f.text_field :work, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :email, "Email", class:"form-label" %><br />
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :weight %><br />
-    <%= f.text_field :weight %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :com1, "Complaint 1", class:"form-label" %><br />
+      <%= f.text_field :com1, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :com2, "Complaint 2", class:"form-label" %><br />
+      <%= f.text_field :com2, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :com3, "Complaint 3", class:"form-label" %><br />
+      <%= f.text_field :com3, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street %>
+
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.label :dOnset, "Date Onset", class:"form-label" %><br />
+      <%= f.date_field :dOnset, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :painScale, "Pain Scale 1-10", class:"form-label" %><br />
+      <%= f.number_field :painScale, in: 0..10, value: 0, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :dLost, "Work-days Lost", class:"form-label" %><br />
+      <%= f.number_field :dLost, in: 0..100, value: 0, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :dRestd, "Days Restricted", class:"form-label" %><br />
+      <%= f.number_field :dRestd, in: 0..100, value: 0, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :cOnset, "Conditions Onset", class:"form-label" %><br />
+      <%= f.text_field :cOnset, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :better, "What makes it better?", class:"form-label" %><br />
+      <%= f.text_field :better, class: "form-control" %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :worse, "What makes it worse?", class:"form-label" %><br />
+      <%= f.text_field :worse, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
+
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.label :oDrs, "Seen other Drs?", class:"form-label" %><br />
+      <%= f.select :oDrs, Patient::SEEN_DR, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :oDrsWhen, "When?", class:"form-label" %><br />
+      <%= f.date_field :oDrsWhen, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :pcpNm, "Prim.Care Dr. Name", class:"form-label" %><br />
+      <%= f.text_field :pcpNm, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :hosp, "Hospitalized?", class:"form-label" %><br />
+      <%= f.select :hosp, Patient::HOSPITALIZED, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :hWhen, "When?", class:"form-label" %><br />
+      <%= f.date_field :hWhen, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :diagGiven, "Diagnoses given?", class:"form-label" %><br />
+      <%= f.text_field :diagGiven, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :diagWhere, "Where", class:"form-label" %><br />
+      <%= f.text_field :diagWhere, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :aqB4, "Acupunture before?", class:"form-label" %><br />
+      <%= f.select :aqB4, Patient::ACU_BEFORE, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :aqrist, "Name of Dr?", class:"form-label" %><br />
+      <%= f.text_field :aqrist, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :aqWhere, "Where", class:"form-label" %><br />
+      <%= f.text_field :aqWhere, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :cell %><br />
-    <%= f.text_field :cell %>
+
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.label :diseases, "Major Health Issues:", class:"form-label" %><br />
+      
+      <% diseases = [0, 3] %>
+      <% Patient::HEALTH.each do |h| %>
+        <%= f.check_box :diseases, { multiple: true, checked: f.object.diseases&.include?(f.to_s)}, h, nil %>
+        <%= f.label h %>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :home %><br />
-    <%= f.text_field :home %>
+
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :oDis, "Other Issues", class:"form-label" %><br />
+      <%= f.text_field :oDis, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :injSurg, "Major Injuries/Surgeries", class:"form-label" %><br />
+      <%= f.text_field :injSurg, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :medTaken, "Medicines Currently Taken", class:"form-label" %><br />
+      <%= f.text_field :medTaken, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :work %><br />
-    <%= f.text_field :work %>
+ 
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.label :alcohol, "Alcohol: How much?", class:"form-label" %><br />
+      <%= f.text_field :alcohol, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+    <%= f.label :tobacco, "Tobacco: How much?", class:"form-label" %><br />
+    <%= f.text_field :tobacco, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <i>For female only:</i> 
+      <%= f.label :lastPrd, "When was your last period?", class:"form-label" %><br />
+      <%= f.date_field :lastPrd, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :preg, "Are you pregnant?", class:"form-label" %><br />
+      <%= f.select :preg, Patient::PREG, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :pregWks, "How many weeks?", class:"form-label" %><br />
+      <%= f.number_field :pregWks, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+
+  <% f.label :regi %><br />
+  <% f.text_field :regi %>
+
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-secondary" %>
   </div>
-  <div class="field">
-    <%= f.label :referred %><br />
-    <%= f.text_field :referred %>
-  </div>
-  <div class="field">
-    <%= f.label :com1 %><br />
-    <%= f.text_field :com1 %>
-  </div>
-  <div class="field">
-    <%= f.label :com2 %><br />
-    <%= f.text_field :com2 %>
-  </div>
-  <div class="field">
-    <%= f.label :com3 %><br />
-    <%= f.text_field :com3 %>
-  </div>
-  <div class="field">
-    <%= f.label :dOnset %><br />
-    <%= f.date_field :dOnset %>
-  </div>
-  <div class="field">
-    <%= f.label :painScale %><br />
-    <%= f.number_field :painScale %>
-  </div>
-  <div class="field">
-    <%= f.label :dLost %><br />
-    <%= f.number_field :dLost %>
-  </div>
-  <div class="field">
-    <%= f.label :dRestd %><br />
-    <%= f.number_field :dRestd %>
-  </div>
-  <div class="field">
-    <%= f.label :cOnset %><br />
-    <%= f.text_field :cOnset %>
-  </div>
-  <div class="field">
-    <%= f.label :better %><br />
-    <%= f.text_field :better %>
-  </div>
-  <div class="field">
-    <%= f.label :worse %><br />
-    <%= f.text_field :worse %>
-  </div>
-  <div class="field">
-    <%= f.label :oDrs %><br />
-    <%= f.text_field :oDrs %>
-  </div>
-  <div class="field">
-    <%= f.label :oDrsWhen %><br />
-    <%= f.date_field :oDrsWhen %>
-  </div>
-  <div class="field">
-    <%= f.label :pcpNm %><br />
-    <%= f.text_field :pcpNm %>
-  </div>
-  <div class="field">
-    <%= f.label :hosp %><br />
-    <%= f.text_field :hosp %>
-  </div>
-  <div class="field">
-    <%= f.label :hWhen %><br />
-    <%= f.date_field :hWhen %>
-  </div>
-  <div class="field">
-    <%= f.label :diagGiven %><br />
-    <%= f.text_field :diagGiven %>
-  </div>
-  <div class="field">
-    <%= f.label :diagWhere %><br />
-    <%= f.text_field :diagWhere %>
-  </div>
-  <div class="field">
-    <%= f.label :aqB4 %><br />
-    <%= f.text_field :aqB4 %>
-  </div>
-  <div class="field">
-    <%= f.label :aqrist %><br />
-    <%= f.text_field :aqrist %>
-  </div>
-  <div class="field">
-    <%= f.label :aqWhere %><br />
-    <%= f.text_field :aqWhere %>
-  </div>
-  <div class="field">
-    <%= f.label :diseases %><br />
-    <%= f.text_field :diseases %>
-  </div>
-  <div class="field">
-    <%= f.label :oDis %><br />
-    <%= f.text_field :oDis %>
-  </div>
-  <div class="field">
-    <%= f.label :injSurg %><br />
-    <%= f.text_field :injSurg %>
-  </div>
-  <div class="field">
-    <%= f.label :medTaken %><br />
-    <%= f.text_field :medTaken %>
-  </div>
-  <div class="field">
-    <%= f.label :lastPrd %><br />
-    <%= f.date_field :lastPrd %>
-  </div>
-  <div class="field">
-    <%= f.label :preg %><br />
-    <%= f.text_field :preg %>
-  </div>
-  <div class="field">
-    <%= f.label :pregWks %><br />
-    <%= f.number_field :pregWks %>
-  </div>
-  <div class="field">
-    <%= f.label :regi %><br />
-    <%= f.text_field :regi %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
 <% end %>
+

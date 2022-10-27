@@ -35,7 +35,7 @@ class ChartsController < ApplicationController
   def update
     if @chart.update(chart_params)
 
-      redirect_to([@chart.regi, @chart], notice: 'Chart was successfully updated.')
+      redirect_to(regi_charts_path(@chart.regi), notice: 'Chart was successfully updated.')
     else
       render action: 'edit'
     end

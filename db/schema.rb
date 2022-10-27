@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_24_202511) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_24_030114) do
   create_table "charts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "tDate"
     t.text "soap"
@@ -24,53 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_202511) do
     t.index ["regi_id"], name: "index_charts_on_regi_id"
   end
 
-  create_table "patients", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.date "vDate"
-    t.string "mStat"
-    t.decimal "height", precision: 10
-    t.decimal "weight", precision: 10
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "cell"
-    t.string "home"
-    t.string "work"
-    t.string "email"
-    t.string "referred"
-    t.string "com1"
-    t.string "com2"
-    t.string "com3"
-    t.date "dOnset"
-    t.integer "painScale"
-    t.integer "dLost"
-    t.integer "dRestd"
-    t.string "cOnset"
-    t.string "better"
-    t.string "worse"
-    t.string "oDrs"
-    t.date "oDrsWhen"
-    t.string "pcpNm"
-    t.string "hosp"
-    t.date "hWhen"
-    t.string "diagGiven"
-    t.string "diagWhere"
-    t.string "aqB4"
-    t.string "aqrist"
-    t.string "aqWhere"
-    t.string "diseases"
-    t.string "oDis"
-    t.string "injSurg"
-    t.string "medTaken"
-    t.date "lastPrd"
-    t.string "preg"
-    t.integer "pregWks"
-    t.bigint "regi_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["regi_id"], name: "index_patients_on_regi_id"
-  end
-
   create_table "regis", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "lastNm"
     t.string "firstNm"
@@ -82,5 +35,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_24_202511) do
   end
 
   add_foreign_key "charts", "regis"
-  add_foreign_key "patients", "regis"
 end

@@ -27,7 +27,7 @@ class RegisController < ApplicationController
 
     respond_to do |format|
       if @regi.save
-        format.html { redirect_to root_path, notice: "Regi was successfully created." }
+        format.html { redirect_to root_path, notice: "Record was successfully created." }
         format.json { render :show, status: :created, location: @regi }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class RegisController < ApplicationController
   def update
     respond_to do |format|
       if @regi.update(regi_params)
-        format.html { redirect_to regi_url(@regi), notice: "Regi was successfully updated." }
+        format.html { redirect_to regi_url(@regi), notice: "Record was successfully saved." }
         format.json { render :show, status: :ok, location: @regi }
       else
         format.html { render :edit, status: :unprocessable_entity }

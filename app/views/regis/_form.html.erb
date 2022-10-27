@@ -22,13 +22,13 @@
   </div>
 
   <div>
-    <%= form.label :init, "M.Inital:", style: "display: block" %>
+    <%= form.label :init, "Middle Inital:", style: "display: block" %>
     <%= form.text_field :init, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label :gender, "Gender:", style: "display: block" %>
-    <%= form.text_field :gender, class: "form-control" %>
+    <%= form.select :gender, Regi::GENDER_OPTIONS, class: "form-control" %>
   </div>
 
   <div>

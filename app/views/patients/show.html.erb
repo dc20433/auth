@@ -1,210 +1,299 @@
 <p id="notice"><%= notice %></p>
 
+<h2 class="text-center">Patient Record</h2>
+
+<div class="text-center">
+  <%= render 'layouts/identifier' %>
+</div>
+<br>
+<div>
+  <%= link_to 'Edit', edit_regi_patient_path(@patient.regi, @patient), class:'btn btn-warning btn-sm' %> 
+  <%= link_to 'Back to Charts', regi_patients_path(@patient.regi), class:'btn btn-primary btn-sm' %>
+  <%= link_to 'Patient Listing', root_path, class:"btn btn-dark btn-sm" %>
+</div>
+<br>
+
 <p>
-  <b>Vdate:</b>
+  <b>Updated on:</b>
   <%= @patient.vDate %>
 </p>
 
-<p>
-  <b>Mstat:</b>
-  <%= @patient.mStat %>
-</p>
+<div class="row">
+  <div class="col-md-5">
+    <p>
+      <b>Street:</b>
+      <%= @patient.street %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+    <b>City:</b>
+    <%= @patient.city %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+      <b>State:</b>
+      <%= @patient.state %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+      <b>Zip Code:</b>
+      <%= @patient.zip %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>Height:</b>
-  <%= @patient.height %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <b>Weight:</b>
+      <%= @patient.weight %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Height:</b>
+      <%= @patient.height %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Marital Status:</b>
+      <%= @patient.mStat %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Referred:</b>
+      <%= @patient.referred %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>Weight:</b>
-  <%= @patient.weight %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <b>Cell Phone:</b>
+      <%= @patient.cell %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Home Phone:</b>
+      <%= @patient.home %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Work Phone:</b>
+      <%= @patient.work %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Email:</b>
+      <%= @patient.email %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>Street:</b>
-  <%= @patient.street %>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <p>
+      <b>Complaint 1:</b>
+      <%= @patient.com1 %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p>
+      <b>Complaint 2:</b>
+      <%= @patient.com2 %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p>
+      <b>Complaint 3:</b>
+      <%= @patient.com3 %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>City:</b>
-  <%= @patient.city %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <b>Date Onset:</b>
+      <%= @patient.dOnset %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+    <b>Pain Scale:</b>
+    <%= @patient.painScale %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+      <b>Work Days Lost:</b>
+      <%= @patient.dLost %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+      <b>Days Restricted:</b>
+      <%= @patient.dRestd %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Condition Onset:</b>
+      <%= @patient.cOnset %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>State:</b>
-  <%= @patient.state %>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <p>
+      <b>What makdes it better?</b>
+      <%= @patient.better %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p>
+    <b>What makes it worse?</b>
+    <%= @patient.worse %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+      <b>Seen doctor?</b>
+      <%= @patient.oDrs %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+      <b>When</b>
+      <%= @patient.oDrsWhen %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>Zip:</b>
-  <%= @patient.zip %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <p>
+      <b>Hospitalized?</b>
+      <%= @patient.hosp %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+    <b>When?</b>
+    <%= @patient.hWhen %>
+    </p>
+  </div>
+  <div class="col-md-5">
+    <p>
+      <b>Diagnose Given:</b>
+      <%= @patient.diagGiven %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Where?</b>
+      <%= @patient.diagWhere %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>Cell:</b>
-  <%= @patient.cell %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <b>Acupunture Before?</b>
+      <%= @patient.aqB4 %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+    <b>Acupunturist?</b>
+    <%= @patient.aqrist %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>Where?</b>
+      <%= @patient.aqWhere %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <b>PCP Name:</b>
+      <%= @patient.pcpNm %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>Home:</b>
-  <%= @patient.home %>
-</p>
+<div class="row">
+  <div class="col-md-8">
+    <p>
+      <b>Major Health Issues:</b>
+      <%= @patient.diseases %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p>
+    <b>Other Issues:</b>
+    <%= @patient.oDis %>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <b>Major Injuries/Surgeries:</b>
+      <%= @patient.injSurg %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p>
+      <b>Medicines Taken:</b>
+      <%= @patient.medTaken %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>Work:</b>
-  <%= @patient.work %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @patient.email %>
-</p>
-
-<p>
-  <b>Referred:</b>
-  <%= @patient.referred %>
-</p>
-
-<p>
-  <b>Com1:</b>
-  <%= @patient.com1 %>
-</p>
-
-<p>
-  <b>Com2:</b>
-  <%= @patient.com2 %>
-</p>
-
-<p>
-  <b>Com3:</b>
-  <%= @patient.com3 %>
-</p>
-
-<p>
-  <b>Donset:</b>
-  <%= @patient.dOnset %>
-</p>
-
-<p>
-  <b>Painscale:</b>
-  <%= @patient.painScale %>
-</p>
-
-<p>
-  <b>Dlost:</b>
-  <%= @patient.dLost %>
-</p>
-
-<p>
-  <b>Drestd:</b>
-  <%= @patient.dRestd %>
-</p>
-
-<p>
-  <b>Conset:</b>
-  <%= @patient.cOnset %>
-</p>
-
-<p>
-  <b>Better:</b>
-  <%= @patient.better %>
-</p>
-
-<p>
-  <b>Worse:</b>
-  <%= @patient.worse %>
-</p>
-
-<p>
-  <b>Odrs:</b>
-  <%= @patient.oDrs %>
-</p>
-
-<p>
-  <b>Odrswhen:</b>
-  <%= @patient.oDrsWhen %>
-</p>
-
-<p>
-  <b>Pcpnm:</b>
-  <%= @patient.pcpNm %>
-</p>
-
-<p>
-  <b>Hosp:</b>
-  <%= @patient.hosp %>
-</p>
-
-<p>
-  <b>Hwhen:</b>
-  <%= @patient.hWhen %>
-</p>
-
-<p>
-  <b>Diaggiven:</b>
-  <%= @patient.diagGiven %>
-</p>
-
-<p>
-  <b>Diagwhere:</b>
-  <%= @patient.diagWhere %>
-</p>
-
-<p>
-  <b>Aqb4:</b>
-  <%= @patient.aqB4 %>
-</p>
-
-<p>
-  <b>Aqrist:</b>
-  <%= @patient.aqrist %>
-</p>
-
-<p>
-  <b>Aqwhere:</b>
-  <%= @patient.aqWhere %>
-</p>
-
-<p>
-  <b>Diseases:</b>
-  <%= @patient.diseases %>
-</p>
-
-<p>
-  <b>Odis:</b>
-  <%= @patient.oDis %>
-</p>
-
-<p>
-  <b>Injsurg:</b>
-  <%= @patient.injSurg %>
-</p>
-
-<p>
-  <b>Medtaken:</b>
-  <%= @patient.medTaken %>
-</p>
-
-<p>
-  <b>Lastprd:</b>
-  <%= @patient.lastPrd %>
-</p>
-
-<p>
-  <b>Preg:</b>
-  <%= @patient.preg %>
-</p>
-
-<p>
-  <b>Pregwks:</b>
-  <%= @patient.pregWks %>
-</p>
-
-<p>
-  <b>Regi:</b>
-  <%= @patient.regi %>
-</p>
+<div class="row">
+  <div class="col-md-2">
+    <p>
+      <b>Alcohol:</b>
+      <%= @patient.alcohol %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+    <b>Tobacco:</b>
+    <%= @patient.tobacco %>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <i>Female only:Last Period</i>
+      <%= @patient.lastPrd %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+      <i>Pregnant?</i>
+      <%= @patient.preg %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <p>
+      <i>Weeks Pregancy:</i>
+      <%= @patient.pregWks %>
+    </p>
+  </div>
+</div>
 
 
-<%= link_to 'Edit', edit_regi_patient_path(@patient.regi, @patient) %> |
-<%= link_to 'Back', regi_patients_path(@patient.regi) %>

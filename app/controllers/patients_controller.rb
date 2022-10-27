@@ -43,7 +43,6 @@ class PatientsController < ApplicationController
   # DELETE regis/1/patients/1
   def destroy
     @patient.destroy
-
     redirect_to regi_patients_url(@regi)
   end
 
@@ -59,6 +58,6 @@ class PatientsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def patient_params
-      params.require(:patient).permit(:vDate, :mStat, :height, :weight, :street, :city, :state, :zip, :cell, :home, :work, :email, :referred, :com1, :com2, :com3, :dOnset, :painScale, :dLost, :dRestd, :cOnset, :better, :worse, :oDrs, :oDrsWhen, :pcpNm, :hosp, :hWhen, :diagGiven, :diagWhere, :aqB4, :aqrist, :aqWhere, :diseases, :oDis, :injSurg, :medTaken, :lastPrd, :preg, :pregWks, :regi_id)
+      params.require(:patient).permit(:vDate, :mStat, :height, :weight, :street, :city, :state, :zip, :cell, :home, :work, :email, :referred, :com1, :com2, :com3, :dOnset, :painScale, :dLost, :dRestd, :cOnset, :better, :worse, :oDrs, :oDrsWhen, :pcpNm, :hosp, :hWhen, :diagGiven, :diagWhere, :aqB4, :aqrist, :aqWhere, :diseases, :oDis, :injSurg, :medTaken, :alcohol, :tobacco, :lastPrd, :preg, :pregWks, :regi_id, :regi)
     end
 end

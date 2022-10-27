@@ -1,6 +1,10 @@
-<h1>Patient charts</h1>
+<h1 class="text-center">Patient charts</h1>
 
-<%= render 'layouts/identifier' %>
+<div class="text-center">
+  <%= render 'layouts/identifier' %>
+</div>
+
+
 <%= link_to 'Patient Listing', root_path, class:"btn btn-dark" %>
 
 <table class="table table-striped table-hover">
@@ -11,7 +15,7 @@
     <th>Medicines</th>
     <th>Formulae</th>
     <th>Other Cares</th>
-    <th class="col-auto"></th>
+    <th width='280px'></th>
   </tr>
 
 <% @charts.each do |chart| %>
@@ -29,7 +33,7 @@
     <td>
       <%= link_to 'Show', [chart.regi, chart], class:"btn btn-primary btn-sm" %>
       <%= link_to 'Edit', edit_regi_chart_path(chart.regi, chart), class:"btn btn-warning btn-sm" %>
-      <%= link_to 'Destroy', [chart.regi, chart], class:"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Delete', [chart.regi, chart], class:"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
       <%= link_to 'Insurance', [chart.regi, chart], class:"btn btn-success btn-sm" %>
     </td>
   </tr>
