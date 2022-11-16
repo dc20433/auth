@@ -1,0 +1,31 @@
+<div id="<%= dom_id(chart) %>" class="chart">
+  <p>
+    <b>Updated on:</b>
+    <%= @chart.tDate %>
+  </p>
+
+  <p>
+    <b>S.O.A.P.:</b>
+    <%= @chart.soap %>
+  </p>
+
+  <p>
+    <b>Acupoints Used:</b>
+    <%= @chart.acuList %>
+  </p>
+
+  <p>
+    <b>Chinese MedicinesCmedlist:</b>
+    <%= @chart.cMedList %>
+  </p>
+
+  <p>
+    <b>Fromulae:</b>
+    <%= @chart.cForList %>
+  </p>
+
+  <p>
+    <b>Other Treatments:</b>
+    <%= @chart.oTreats %>
+  </p>
+</div>

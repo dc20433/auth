@@ -17,7 +17,7 @@
 
 <% @regis.each do |regi| %>
   <tr>
-    <td><%= regi.lastNm %></td>
+    <td><%= link_to regi.lastNm, regi_path(regi.id) %></td>
     <td><%= regi.firstNm %></td>
     <td><%= regi.init %></td>
     <td><%= regi.gender %></td>
@@ -25,8 +25,7 @@
 
     <% regi.id %>
 
-    <td><%= link_to 'Edit', edit_regi_path(regi), class: "btn btn-secondary btn-sm" %> 
-    <td><%= link_to 'Destroy', regi, class: "btn btn-warning btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
     <td><%= link_to 'Records', regi_patients_path(regi.id), class: "btn btn-primary btn-sm" %></td> 
     <td><%= link_to 'Charts', regi_charts_path(regi.id), class: "btn btn-success btn-sm" %></td>
 

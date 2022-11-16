@@ -8,7 +8,6 @@ class RegisController < ApplicationController
 
   # GET /regis/1 or /regis/1.json
   def show
-    redirect_to regis_path
   end
 
   # GET /regis/new

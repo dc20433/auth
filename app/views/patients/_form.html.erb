@@ -13,7 +13,7 @@
  
   <div class="row inline">
     <div class="col-md-2">
-      <%= f.label :vDate, "Updated on", class:"form-label" %>
+      <b><%= f.label :vDate, "Updated on", class:"form-label" %></b>
       <%= f.date_field :vDate, class: "form-control" %>
     </div>
   </div>
@@ -201,11 +201,11 @@
   <div class="row">
     <div class="col-md-2">
       <%= f.label :alcohol, "Alcohol: How much?", class:"form-label" %><br />
-      <%= f.text_field :alcohol, class: "form-control" %>
+      <%= f.text_field :alcohol, class: "form-control", placeholder: "?/week" %>
     </div>
     <div class="col-md-2">
     <%= f.label :tobacco, "Tobacco: How much?", class:"form-label" %><br />
-    <%= f.text_field :tobacco, class: "form-control" %>
+    <%= f.text_field :tobacco, class: "form-control", placeholder: "?/day"  %>
     </div>
     <div class="col-md-4">
       <i>For female only:</i> 
