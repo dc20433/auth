@@ -14,7 +14,7 @@
   <div class="row inline">
     <div class="col-md-2">
       <b><%= f.label :vDate, "Updated on", class:"form-label" %></b>
-      <%= f.date_field :vDate, class: "form-control" %>
+      <%= f.date_field :vDate, value: Time.zone.today, class: "form-control" %>
     </div>
   </div>
 
