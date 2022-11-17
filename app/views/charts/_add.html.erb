@@ -5,7 +5,7 @@
   
 <div class="field">
     <strong><%= f.label :tDate, 'Updated on:' %></strong>
-    <%= f.date_field :tDate, value: @c.last.tDate, class:"form-control" %>
+    <%= f.date_select :tDate, value: Time.zone.today, class:"form-control" %>
   </div>
   <div class="field">
     <strong><%= f.label :soap, 'S.O.A.P.' %></strong>
