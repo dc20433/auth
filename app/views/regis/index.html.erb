@@ -1,8 +1,9 @@
 <div class='container'>
 
-<h1>Patient Listing</h1>
+<h1 class="text-center">Patient Listing</h1>
 
-<%= link_to "New Patient", new_regi_path, class: "btn btn-dark" %>
+<%= link_to "New Patient", new_regi_path, class: "btn btn-outline-info" %>
+<br><br>
 
 <table class="table table-striped table-hover">
 
@@ -15,7 +16,8 @@
     <th colspan=4></th>
   </tr>
 
-<% @regis.each do |regi| %>
+<% @regis.all.sort_by{ |h| h[:lastNm] }.each do |regi| %>
+
   <tr>
     <td><%= link_to regi.lastNm, regi_path(regi.id) %></td>
     <td><%= regi.firstNm %></td>

@@ -2,8 +2,7 @@
 
 <%= form_with(model: [@regi,@chart]) do |f| %>
  
-  
-<div class="field">
+  <div class="field">
     <strong><%= f.label :tDate, 'Updated on:' %></strong>
     <%= f.date_field :tDate, value: Time.zone.today, class:"form-control border-primary" %>
   </div>

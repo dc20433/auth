@@ -32,7 +32,7 @@ class ChartsController < ApplicationController
   # PUT regis/1/charts/1
   def update
     if @chart.update chart_params
-      redirect_to regi_chart_path(@regi), notice: 'Chart updated.'
+      redirect_to(regi_chart_path(@regi), notice: 'Chart updated.')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,18 +45,17 @@ class ChartsController < ApplicationController
   end
 
   private
-  # Only allow a trusted parameter "white list" through.
-  def chart_params
-    params.require(:chart).permit(:tDate, :soap, :acuList, :cMedList, :cForList, :oTreats, :regi, :id)
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_regi
     @regi = Regi.find params[:regi_id]
   end
-
+  
   def set_chart
     @chart = @regi.charts.find params[:id]
   end
-
+  
+  # Only allow a trusted parameter "white list" through.
+  def chart_params
+    params.require(:chart).permit(:tDate, :soap, :acuList, :cMedList, :cForList, :oTreats, :regi, :id)
+  end
 end

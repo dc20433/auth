@@ -1,31 +1,30 @@
 <% @c = Chart.where(regi_id: params[:regi_id]) %>
 
 <%= form_with(model: [@regi,@chart]) do |f| %>
- 
   
-<div class="field">
+  <div class="field">
     <strong><%= f.label :tDate, 'Updated on:' %></strong>
-    <%= f.date_select :tDate, value: Time.zone.today, class:"form-control" %>
+    <%= f.date_select :tDate, value: Time.zone.today, class:"form-control border-primary" %>
   </div>
   <div class="field">
     <strong><%= f.label :soap, 'S.O.A.P.' %></strong>
-    <%= f.text_area :soap, value: @c.last.soap, class:"form-control" %>
+    <%= f.text_area :soap, value: @c.last.soap, class:"form-control border-primary" %>
   </div>
   <div class="field">
   <strong><%= f.label :acuList, 'Acupoints Used:' %></strong>
-    <%= f.text_field :acuList, value: @c.last.acuList, class:"form-control" %>
+    <%= f.text_field :acuList, value: @c.last.acuList, class:"form-control border-primary" %>
   </div>
   <div class="field">
   <strong><%= f.label :cMedList, 'Chinese Medicines:' %></strong>
-    <%= f.text_field :cMedList, value: @c.last.cMedList, class:"form-control" %>
+    <%= f.text_field :cMedList, value: @c.last.cMedList, class:"form-control border-primary" %>
   </div>
   <div class="field">
   <strong><%= f.label :cForList, 'Formulae:' %></strong>
-    <%= f.text_field :cForList, value: @c.last.cForList, class:"form-control" %>
+    <%= f.text_field :cForList, value: @c.last.cForList, class:"form-control border-primary" %>
   </div>
   <div class="field">
   <strong><%= f.label :oTreats, 'Other Treatments:' %></strong>
-    <%= f.text_field :oTreats, value: @c.last.oTreats, class:"form-control" %>
+    <%= f.text_field :oTreats, value: @c.last.oTreats, class:"form-control border-primary" %>
   </div>
   <%= f.number_field :regi_id, value: @regi.id, type:'hidden' %>
 
