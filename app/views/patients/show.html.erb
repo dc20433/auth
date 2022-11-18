@@ -1,12 +1,9 @@
-<h2 class="text-center">Patient Record</h2>
-
-<div class="text-center">
+<h1 class="text-center">Patient Record</h1>
   <%= render 'layouts/identifier' %>
-</div>
-<br>
 <div>
   <%= link_to 'Edit', edit_regi_patient_path(@patient.regi, @patient), class:'btn btn-warning btn-sm' %> 
   <%= link_to 'Back to Charts', regi_patients_path(@patient.regi), class:'btn btn-primary btn-sm' %>
+  <%= link_to 'Delete', [regi.id,patient.id], class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
   <%= link_to 'Patient Listing', root_path, class:"btn btn-dark btn-sm" %>
 </div>
 <br>

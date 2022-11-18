@@ -1,71 +1,58 @@
 class RegisController < ApplicationController
-  before_action :set_regi, only: %i[ show edit update destroy ]
+  before_action :set_regi, except: [:new, :index, :create]
 
   # GET /regis or /regis.json
   def index
     @regis = Regi.all
   end
 
-  # GET /regis/1 or /regis/1.json
-  def show
-  end
-
   # GET /regis/new
   def new
     @regi = Regi.new
   end
+  
+  # POST /regis or /regis.json
+  def create
+    @regi = Regi.new regi_params
+    if @regi.save
+      redirect_to regis_path, notice: "Patient created."
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  # GET /regis/1 or /regis/1.json
+  def show
+  end
 
   # GET /regis/1/edit
   def edit
-
-  end
-
-  # POST /regis or /regis.json
-  def create
-    @regi = Regi.new(regi_params)
-
-    respond_to do |format|
-      if @regi.save
-        format.html { redirect_to root_path, notice: "Record was successfully created." }
-        format.json { render :show, status: :created, location: @regi }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @regi.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /regis/1 or /regis/1.json
   def update
-    respond_to do |format|
-      if @regi.update(regi_params)
-        format.html { redirect_to regi_url(@regi), notice: "Record was successfully saved." }
-        format.json { render :show, status: :ok, location: @regi }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @regi.errors, status: :unprocessable_entity }
-      end
+    if @regi.update regi_params
+      redirect_to regis_path, notice: "Patient updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
+
 
   # DELETE /regis/1 or /regis/1.json
   def destroy
     @regi.destroy
-
-    respond_to do |format|
-      format.html { redirect_to regis_url, notice: "Regi was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to regis_path, alert: "Patient deleted."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_regi
-      @regi = Regi.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_regi
+    @regi = Regi.find params[:id]
+  end
 
-    # Only allow a list of trusted parameters through.
-    def regi_params
-      params.require(:regi).permit(:lastNm, :firstNm, :init, :gender, :dob)
-    end
+  # Only allow a list of trusted parameters through.
+  def regi_params
+    params.require(:regi).permit(:lastNm, :firstNm, :init, :gender, :dob)
+  end
 end

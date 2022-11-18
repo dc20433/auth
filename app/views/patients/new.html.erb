@@ -1,10 +1,11 @@
-<h1 class='text-center'>New Record</h1>
+<h1 class="text-center">New Record</h1>
+<%= render 'layouts/identifier' %>
 
-<div class="text-center">
-  <%= render '/layouts/identifier' %>
-</div>
-<br>
-<%= render 'form' %>
+<%= link_to "Patient Info", regi_patients_path, class:"btn btn-info" %>
 
-<%= link_to 'Back', regi_patients_path(@patient.regi) %>
+<% if defined?(Patient.where(regi_id: params[:regi_id]).last.id) %>
+  <%= render 'add' %>
+<% else %>
+  <%= render 'form' %>
+<% end %>
 

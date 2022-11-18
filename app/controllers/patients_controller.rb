@@ -1,49 +1,47 @@
 class PatientsController < ApplicationController
   before_action :set_regi
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_patient, except: [:index, :new, :create]
 
   # GET regis/1/patients
   def index
-    @patients = @regi.patients
+  end
+
+  # GET regis/1/patients/new
+  def new
+    @patient = Patient.new
+  end
+  
+  # POST regis/1/patients
+  def create
+    @patient = Patient.new patient_params
+    if @regi.patients << @patient
+      redirect_to(regi_patient_path(@regi,@patient), notice: 'New Patient created.')
+    else
+      render action: 'new', status: :unprocessable_entity
+    end
   end
 
   # GET regis/1/patients/1
   def show
   end
 
-  # GET regis/1/patients/new
-  def new
-    @patient = @regi.patients.build
-  end
-
   # GET regis/1/patients/1/edit
   def edit
-  end
-
-  # POST regis/1/patients
-  def create
-    @patient = @regi.patients.build(patient_params)
-
-    if @patient.save
-      redirect_to([@patient.regi, @patient], notice: 'Patient was successfully created.')
-    else
-      render action: 'new'
-    end
   end
 
   # PUT regis/1/patients/1
   def update
     if @patient.update(patient_params)
-      redirect_to([@patient.regi, @patient], notice: 'Patient was successfully updated.')
+      redirect_to(regi_patients_path(@patient.regi), notice:'Patient updated.')
     else
-      render action: 'edit'
+      render action: 'edit', status: :unprocessable_entity
     end
   end
 
   # DELETE regis/1/patients/1
   def destroy
     @patient.destroy
-    redirect_to regi_patients_url(@regi)
+    redirect_to regi_patients_path(@regi), alter:"Patient deleted"
   end
 
   private

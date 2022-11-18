@@ -17,7 +17,7 @@ class ChartsController < ApplicationController
     if @regi.charts << @chart
       redirect_to regi_chart_path(@regi,@chart), notice: 'New chart created.'
     else
-      render action: 'new', status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
   
@@ -31,17 +31,17 @@ class ChartsController < ApplicationController
 
   # PUT regis/1/charts/1
   def update
-    if @chart.update(chart_params)
-      redirect_to(regi_charts_path(@chart.regi), notice: 'Chart updated.')
+    if @chart.update chart_params
+      redirect_to regi_chart_path(@regi), notice: 'Chart updated.'
     else
-      render action: 'edit', status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE regis/1/charts/1
   def destroy
     @chart.destroy
-    redirect_to regi_charts_path(@regi), alert: "Chart Deleted."
+    redirect_to regi_charts_path(@regi), alert: "Chart deleted."
   end
 
   private
@@ -52,11 +52,11 @@ class ChartsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_regi
-    @regi = Regi.find(params[:regi_id])
+    @regi = Regi.find params[:regi_id]
   end
 
   def set_chart
-    @chart = @regi.charts.find(params[:id])
+    @chart = @regi.charts.find params[:id]
   end
 
 end

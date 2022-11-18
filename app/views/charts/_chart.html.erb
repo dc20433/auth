@@ -1,31 +1,33 @@
-<div id="<%= dom_id(chart) %>" class="chart">
-  <p>
-    <b>Updated on:</b>
-    <%= @chart.tDate %>
-  </p>
+<% @c = Chart.where(regi_id: params[:regi_id]) %>
 
-  <p>
-    <b>S.O.A.P.:</b>
-    <%= @chart.soap %>
-  </p>
+<%= form_with(model: [@regi,@chart]) do |f| %>
+ 
+  
+<div class="field">
+    <strong><%= f.label :tDate, 'Updated on:' %></strong>
+    <%= f.date_field :tDate, value: Time.zone.today, class:"form-control border-primary" %>
+  </div>
+  <div class="field">
+    <strong><%= f.label :soap, 'S.O.A.P.' %></strong>
+    <%= f.text_area :soap, value: @c.last.soap, class:"form-control border-primary" %>
+  </div>
+  <div class="field">
+  <strong><%= f.label :acuList, 'Acupoints Used:' %></strong>
+    <%= f.text_field :acuList, value: @c.last.acuList, class:"form-control border-primary" %>
+  </div>
+  <div class="field">
+  <strong><%= f.label :cMedList, 'Chinese Medicines:' %></strong>
+    <%= f.text_field :cMedList, value: @c.last.cMedList, class:"form-control border-primary" %>
+  </div>
+  <div class="field">
+  <strong><%= f.label :cForList, 'Formulae:' %></strong>
+    <%= f.text_field :cForList, value: @c.last.cForList, class:"form-control border-primary" %>
+  </div>
+  <div class="field">
+  <strong><%= f.label :oTreats, 'Other Treatments:' %></strong>
+    <%= f.text_field :oTreats, value: @c.last.oTreats, class:"form-control border-primary" %>
+  </div>
+  <%= f.number_field :regi_id, value: @regi.id, type:'hidden' %>
 
-  <p>
-    <b>Acupoints Used:</b>
-    <%= @chart.acuList %>
-  </p>
+<% end %>
 
-  <p>
-    <b>Chinese MedicinesCmedlist:</b>
-    <%= @chart.cMedList %>
-  </p>
-
-  <p>
-    <b>Fromulae:</b>
-    <%= @chart.cForList %>
-  </p>
-
-  <p>
-    <b>Other Treatments:</b>
-    <%= @chart.oTreats %>
-  </p>
-</div>
