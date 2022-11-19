@@ -1,6 +1,10 @@
 class Patient < ApplicationRecord
   belongs_to :regi
 
+  before_save do
+    self.diseases.gsub!(/[\[\]\"]/, "") if attribute_present?("diseases")
+  end
+
   MARITAL_STATUS = 
   [
     ['Select', ''],
