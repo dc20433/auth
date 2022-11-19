@@ -14,14 +14,14 @@
   <div class="row inline">
     <div class="col-md-2">
       <b><%= f.label :vDate, "Updated on", class:"form-label" %></b>
-      <%= f.date_field :vDate, value: Time.zone.today, class: "form-control" %>
+      <%= f.date_field :vDate, class: "form-control" %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-7">
       <%= f.label :street, "Street", class:"form-label" %><br />
-      <%= f.text_field :street, value: @patient.street, class: "form-control" %>
+      <%= f.text_field :street, class: "form-control" %>
     </div>
     <div class="col-md-3">
       <%= f.label :city, "City", class:"form-label" %><br />
@@ -97,15 +97,15 @@
     </div>
     <div class="col-md-2">
       <%= f.label :painScale, "Pain Scale 1-10", class:"form-label" %><br />
-      <%= f.number_field :painScale, in: 0..10, value: 0, class: "form-control" %>
+      <%= f.number_field :painScale, in: 0..10, class: "form-control" %>
     </div>
     <div class="col-md-2">
       <%= f.label :dLost, "Work-days Lost", class:"form-label" %><br />
-      <%= f.number_field :dLost, in: 0..100, value: 0, class: "form-control" %>
+      <%= f.number_field :dLost, in: 0..100, class: "form-control" %>
     </div>
     <div class="col-md-2">
       <%= f.label :dRestd, "Days Restricted", class:"form-label" %><br />
-      <%= f.number_field :dRestd, in: 0..100, value: 0, class: "form-control" %>
+      <%= f.number_field :dRestd, in: 0..100, class: "form-control" %>
     </div>
     <div class="col-md-3">
       <%= f.label :cOnset, "Conditions Onset", class:"form-label" %><br />
@@ -222,13 +222,9 @@
     </div>
   </div>
 
-  <% f.label :regi %><br />
-  <% f.text_field :regi %>
-
-  <%= f.number_field :regi_id, value: @regi.id, type:'hidden' %>
-  <br>
+  
   <div class="actions">
-    <%= f.submit class:'btn btn-dark' %>
+    <%= f.submit "Update Patient Info", class:'btn btn-dark' %>
   </div>
   
 <% end %>

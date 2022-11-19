@@ -4,7 +4,7 @@
 <%= link_to "Back to Chart", regi_charts_path, class:"btn btn-info" %>
 
 <% if defined?(Chart.where(regi_id: params[:regi_id]).last.id) %>
-  <%= render 'add' %>
+  <%= render 'chart' %>
 <% else %>
   <%= render 'form' %>
 <% end %>

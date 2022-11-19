@@ -1,7 +1,8 @@
 <h1 class="text-center">Patient Information</h1>
 <%= render 'layouts/identifier' %>
-<%= link_to 'Patient Listing', root_path, class:"btn btn-dark" %>
-<%= link_to 'New Record', new_regi_patient_path, class:'btn btn-info' %>
+<br>
+<%= link_to 'New Record', new_regi_patient_path, class:'btn btn-outline-success' %>
+<%= link_to 'Patient Listing', root_path, class:"btn btn-outline-primary" %>
 
 <table class="table table-striped table-hover">
   <thead>
@@ -48,7 +49,7 @@
         <td><%= patient.pcpNm %></td>
         <td>
           <%= patient.diseases %><%= ', ' if patient.oDis? %>
-          <% patient.oDis %><%= 'Pregnant' if patient.preg == 'Yes' %>
+          <% patient.oDis %><%= 'Preg' if patient.preg == 'Yes' %>
         </td>
         <td><% patient.regi %></td>
       </tr>

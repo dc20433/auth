@@ -1,27 +1,35 @@
-<div id="<%= dom_id regi %>">
-  <p>
-    <strong>Last Name:</strong>
-    <%= regi.lastNm %>
-  </p>
+<% @r = Regi.where(id: params[:id]) %>
 
-  <p>
-    <strong>First Name:</strong>
-    <%= regi.firstNm %>
-  </p>
+<%= form_for @regi do |f| %>
 
-  <p>
-    <strong>M.Initial:</strong>
-    <%= regi.init %>
-  </p>
-
-  <p>
-    <strong>Gender:</strong>
-    <%= regi.gender %>
-  </p>
-
-  <p>
-    <strong>Date of Birth:</strong>
-    <%= regi.dob %>
-  </p>
-
+<div class="field">
+  <strong><%= f.label :lastNm, 'Last Name:' %></strong>
+    <%= f.text_field :lastNm, value: @r.last.lastNm, class:"form-control form-control-sm border-primary" %>
 </div>
+
+<div class="field">
+  <strong><%= f.label :firstNm, 'First Name:' %></strong>
+    <%= f.text_field :firstNm, value: @r.last.firstNm, class:"form-control form-control-sm border-primary" %>
+</div>
+
+<div class="field">
+  <strong><%= f.label :init, 'M.Intial:' %></strong>
+    <%= f.text_field :init, value: @r.last.init, class:"form-control form-control-sm border-primary" %>
+</div>
+
+<div class="field">
+  <strong><%= f.label :gender, 'Gender:' %></strong>
+    <%= f.text_field :gender, value: @r.last.gender, class:"form-control form-control-sm border-primary" %>
+</div>
+
+<div class="field">
+  <strong><%= f.label :dob, 'Date of Birth:' %></strong>
+    <%= f.text_field :dob, value: @r.last.dob, class:"form-control form-control-sm border-primary" %>
+</div>
+    <%= f.submit "Submit", class: "btn btn-sm col-md-3 btn-dark mt-3" %>
+<% end %>
+
+
+
+
+

@@ -1,10 +1,16 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @regi %>
-
-<div>
-  <%= link_to "Edit", edit_regi_path(@regi) %> |
-  <%= link_to "Back to Patients", regis_path %>
-
-  <%= button_to "Delete this record", @regi, method: :delete %>
+<div class="d-flex justify-content-center card mt-3 mx-auto border-primary" style="width: 30rem;">
+  <img src="..." class="card-img-top" alt="">
+  <div class="card-body">
+    <h2 class="text-center mt-3 mb-4">
+      View Patient Registration
+    </h2>
+    <div class="card-text">
+      <%= render @regi %>
+    </div>
+  </div>
+    <div class="btn-group" role="group">
+      <%= link_to "Edit", edit_regi_path(@regi), class:"btn btn-outline-primary" %> 
+      <%= button_to "Delete this", @regi, method: :delete, class:"btn btn-outline-danger" %>
+      <%= link_to "Patient list", regis_path, class:"btn btn-outline-success" %>
+    </div>
 </div>

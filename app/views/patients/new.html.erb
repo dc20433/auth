@@ -4,7 +4,7 @@
 <%= link_to "Patient Info", regi_patients_path, class:"btn btn-info" %>
 
 <% if defined?(Patient.where(regi_id: params[:regi_id]).last.id) %>
-  <%= render 'add' %>
+  <%= render 'patient' %>
 <% else %>
   <%= render 'form' %>
 <% end %>
