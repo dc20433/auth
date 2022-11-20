@@ -4,11 +4,11 @@
   
   <div class="field">
     <strong><%= f.label :tDate, 'Updated on:' %></strong>
-    <%= f.date_select :tDate, class:"form-control border-primary" %>
+    <%= f.date_field :tDate, class:"form-control border-primary" %>
   </div>
   <div class="field">
     <strong><%= f.label :soap, 'S.O.A.P.' %></strong>
-    <%= f.text_area :soap, value: @c.last.soap, class:"form-control border-primary" %>
+    <%= f.text_area :soap, value: @c.last.soap, class:"form-control border-primary", style:"height: 150px" %>
   </div>
   <div class="field">
   <strong><%= f.label :acuList, 'Acupoints Used:' %></strong>

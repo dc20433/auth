@@ -17,9 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :soap, 'S.O.A.P.' %><br />
-    <%= f.text_area :soap, value:
-"
-Subjective
+    <%= f.text_area :soap, class:"form-control", style:"height: 150px", value: 
+    "Subjective
 Chief Complaint (CC): Examples - chest pain / decreased appetite / shortness of breath.
 History of Present Illness (HPI): Example - 47-year old female presenting with abdominal pain.
 OLDCARTS: Onset / Location / Duration / Characterization / Alleviating / and Aggravating factors / Radiation / Temporal factor Severity
@@ -32,9 +31,7 @@ Assessment
 Problem: List the problem in order of importance
 Differential Diagnosis: Example: Problem 1 / Differential Diagnoses / Discussion / Plan for problem 1 (described in the plan below). Repeat for additional problems
 Plan
-State of current/future testing / Medication needed / Specialist referral / Patient counseling
-"
-    class:"form-control text-nowrap style="width: 8rem;" %>
+State of current/future testing / Medication needed / Specialist referral / Patient counseling" %>
   </div>
   <div class="field">
     <%= f.label :acuList, 'Acupoints Used:' %><br />

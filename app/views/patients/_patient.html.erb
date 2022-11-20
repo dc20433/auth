@@ -2,15 +2,12 @@
 
 <%= form_with(model: [@regi,@patient]) do |f| %>
 
- <div class="row inline">
+  <div class="row">
     <div class="col-md-2">
       <b><%= f.label :vDate, "Updated on", class:"form-label" %></b>
       <%= f.date_field :vDate, class: "form-control border-primary" %>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-5">
       <%= f.label :street, "Street", class:"form-label" %><br />
       <%= f.text_field :street, value: @p.last.street, class: "form-control border-primary" %>
     </div>

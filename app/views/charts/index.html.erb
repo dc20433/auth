@@ -11,24 +11,20 @@
       <th>Acupoints</th>
       <th>Medicines</th>
       <th>Formulae</th>
-      <th>Other Cares</th>
-      <th></th>
+      <th>Other</th>
+      <th>Print</th>
     </tr>
   </thead>
   </tbody>
 
     <% @regi.charts.all.sort_by{ |h| h[:tDate] }.reverse.each do |chart| %>
-      <tr>
+      <tr style="height:15px">
         <td><%= link_to chart.tDate, regi_chart_path(@regi,chart)  %></td>
-        <td><%= chart.soap %></td>
+        <td style="overflow: hidden"><%= chart.soap %></td>
         <td><%= chart.acuList %></td>
         <td><%= chart.cMedList %></td>
         <td><%= chart.cForList %></td>
         <td><%= chart.oTreats %></td>
-
-        <% @regi_id = chart.regi.id %>
-        <% @chart_id = chart.id %>
-
         <td>
           <%= link_to 'Insurance', [chart.regi, chart], class:"btn btn-outline-dark btn-sm" %>
         </td>
