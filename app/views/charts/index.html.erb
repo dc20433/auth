@@ -12,7 +12,6 @@
       <th>Medicines</th>
       <th>Formulae</th>
       <th>Other</th>
-      <th>Print</th>
     </tr>
   </thead>
   </tbody>
@@ -25,14 +24,7 @@
         <td><%= chart.cMedList %></td>
         <td><%= chart.cForList %></td>
         <td><%= chart.oTreats %></td>
-        <td>
-          <%= link_to 'Insurance', [chart.regi, chart], class:"btn btn-outline-dark btn-sm" %>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<% @regi_id %>
-<% @chart_id %>
-

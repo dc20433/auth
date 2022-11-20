@@ -26,8 +26,7 @@
   <strong><%= f.label :oTreats, 'Other Treatments:' %></strong>
     <%= f.text_field :oTreats, value: @c.last.oTreats, class:"form-control border-primary" %>
   </div>
-  <%= f.number_field :regi_id, value: @regi.id, type:'hidden' %>
-
+ 
   <div class="actions">
     <%= f.submit class:'btn btn-dark' %>
   </div>
