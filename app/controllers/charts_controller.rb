@@ -1,4 +1,5 @@
 class ChartsController < ApplicationController
+  
   before_action :set_regi
   before_action :set_chart, except: [:index, :new, :create]
 
@@ -15,7 +16,7 @@ class ChartsController < ApplicationController
   def create
     @chart = Chart.new chart_params
     if @regi.charts << @chart
-      redirect_to regi_chart_path(@regi,@chart), notice: 'New chart created.'
+      redirect_to regi_charts_path(@regi,@chart), notice: 'New chart created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +33,7 @@ class ChartsController < ApplicationController
   # PUT regis/1/charts/1
   def update
     if @chart.update chart_params
-      redirect_to(regi_chart_path(@regi), notice: 'Chart updated.')
+      redirect_to(regi_charts_path(@regi), notice: 'Chart updated.')
     else
       render :edit, status: :unprocessable_entity
     end

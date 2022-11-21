@@ -15,7 +15,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new patient_params
     if @regi.patients << @patient
-      redirect_to(regi_patient_path(@regi,@patient), notice: 'New Patient created.')
+      redirect_to(regi_patients_path(@regi,@patient), notice: 'New Patient created.')
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class PatientsController < ApplicationController
   # PUT regis/1/patients/1
   def update
     if @patient.update patient_params
-      redirect_to(regi_patient_path(@regi), notice:'Patient updated.')
+      redirect_to(regi_patients_path(@regi), notice:'Patient updated.')
     else
       render :edit, status: :unprocessable_entity
     end
