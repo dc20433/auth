@@ -1,4 +1,5 @@
 class RegisController < ApplicationController
+  before_action :authenticate
   before_action :set_regi, except: [:new, :index, :create]
 
   # GET /regis or /regis.json

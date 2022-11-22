@@ -1,5 +1,5 @@
 class ChartsController < ApplicationController
-  
+  before_action :authenticate
   before_action :set_regi
   before_action :set_chart, except: [:index, :new, :create]
 
