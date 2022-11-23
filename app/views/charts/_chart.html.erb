@@ -2,32 +2,51 @@
 
 <%= form_with(model: [@regi,@chart]) do |f| %>
   
-  <div class="field">
-    <strong><%= f.label :tDate, 'Updated on:' %></strong>
-    <%= f.date_field :tDate, class:"form-control border-primary" %>
+   <% if @chart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chart.errors.count, "error") %> prohibited this chart from being saved:</h2>
+
+      <ul>
+      <% @chart.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col col-md-2">
+      <b>Updated on</b>
+      <%= f.date_field :tDate, value:@c.last.tDate, class:"form-control border-primary" %>
+    </div>
   </div>
-  <div class="field">
-    <strong><%= f.label :soap, 'S.O.A.P.' %></strong>
-    <%= f.text_area :soap, value: @c.last.soap, class:"form-control border-primary", style:"height: 150px" %>
+
+  <div class="row">
+    <div class="col">
+      <b>Acupoints Used</b>
+      <%= f.text_field :acuList, value:@c.last.acuList, class:"form-control border-primary" %>
+    </div>
+    <div class="col">
+      <b>Chinese Medicines</b>
+      <%= f.text_field :cMedList, value:@c.last.cMedList, class:"form-control border-primary" %>
+    </div>
+    <div class="col">
+      <b>Formulae</b>
+      <%= f.text_field :cForList, value:@c.last.cForList, class:"form-control border-primary" %>
+    </div>
+    <div class="col">
+      <b>Other Treatments</b>
+      <%= f.text_field :oTreats, value:@c.last.oTreats, class:"form-control border-primary" %>
+    </div>
   </div>
-  <div class="field">
-  <strong><%= f.label :acuList, 'Acupoints Used:' %></strong>
-    <%= f.text_field :acuList, value: @c.last.acuList, class:"form-control border-primary" %>
+
+  <div class="col">
+    <b>S.O.A.P.</br>
+    <%= f.text_area :soap, value:@c.last.soap, class:"form-control border-primary", style:"height: 100px" %>
   </div>
-  <div class="field">
-  <strong><%= f.label :cMedList, 'Chinese Medicines:' %></strong>
-    <%= f.text_field :cMedList, value: @c.last.cMedList, class:"form-control border-primary" %>
-  </div>
-  <div class="field">
-  <strong><%= f.label :cForList, 'Formulae:' %></strong>
-    <%= f.text_field :cForList, value: @c.last.cForList, class:"form-control border-primary" %>
-  </div>
-  <div class="field">
-  <strong><%= f.label :oTreats, 'Other Treatments:' %></strong>
-    <%= f.text_field :oTreats, value: @c.last.oTreats, class:"form-control border-primary" %>
-  </div>
- 
+ <br>
   <div class="actions">
-    <%= f.submit class:'btn btn-dark' %>
-  </div>
+    <%= f.submit "Create", class:'btn btn-outline-primary btn-sm col-md-1' %>
 <% end %>
+  <%= link_to 'Retun', regi_charts_path(@regi), class: 'btn btn-outline-info btn-sm col-md-1' %>
+  </div>

@@ -2,22 +2,20 @@
 
 <%= paginate @users %>
 
+
+<table class="table table-striped table-hover mx-auto" style="width: 40vw">
 <div class="button-row"><%= link_to "New User", new_user_path, class:"btn btn-outline-success" %>
 <%= link_to "Patient Listing", regis_path, class:"btn btn-outline-primary" %></div>
-
-<table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Logged in?</th>
+      <th class="col col-md-2">Name</th>
+      <th class="col col-md-2">Email</th>
+      <th class="col col-md-1">Logged in?</th>
     </tr>
   </thead>
   <tbody>
-    <% @users.all.sort_by{ |h| h[:lastNm] }.each do |user| %>
+    <% @users.all.sort_by{ |h| h[:name] }.each do |user| %>
     <tr>
-      <td><%= user.id %></td>
       <td><%= link_to_unless_current user.name, user_path(user.id) %></td>
       <td><%= user.email %></td>
       <td><%= user.name == current_user.name ? "Yes" : "No" %></td>

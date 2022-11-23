@@ -11,33 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tDate, 'Updated on:' %><br />
-    <%= f.date_field :tDate, class:"form-control" %>
+  <div class="row">
+    <div class="col col-md-2">
+      <b>Updated on</b>
+      <%= f.date_field :tDate, class:"form-control border-primary" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :soap, 'S.O.A.P.' %><br />
-    <%= f.text_area :soap, class:"form-control", style:"height: 150px" %>
+
+  <div class="row">
+    <div class="col">
+      <b>Acupoints Used</b>
+      <%= f.text_field :acuList, class:"form-control border-primary" %>
+    </div>
+    <div class="col">
+      <b>Chinese Medicines</b>
+      <%= f.text_field :cMedList, class:"form-control border-primary" %>
+    </div>
+    <div class="col">
+      <b>Formulae</b>
+      <%= f.text_field :cForList, class:"form-control border-primary" %>
+    </div>
+    <div class="col">
+      <b>Other Treatments</b>
+      <%= f.text_field :oTreats, class:"form-control border-primary" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :acuList, 'Acupoints Used:' %><br />
-    <%= f.text_field :acuList, class:"form-control" %>
+
+  <div class="col">
+    <b>S.O.A.P.</br>
+    <%= f.text_area :soap, class:"form-control border-primary", style:"height: 100px" %>
   </div>
-  <div class="field">
-    <%= f.label :cMedList, 'Chinese Medicines:' %><br />
-    <%= f.text_field :cMedList, class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :cForList, 'Formulae:' %><br />
-    <%= f.text_field :cForList, class:"form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :oTreats, 'Other Treatments:' %><br />
-    <%= f.text_field :oTreats, class:"form-control" %>
-  </div>
-  <%= f.number_field :regi_id, value: @regi.id, type:'hidden' %>
   <br>
   <div class="actions">
-    <%= f.submit class:'btn btn-dark' %>
-  </div>
+    <%= f.submit "Update", class:'btn btn-outline-primary btn-sm col-md-1' %>
 <% end %>
+  <%= link_to 'Retun', regi_charts_path(@regi), class: 'btn btn-outline-info btn-sm col-md-1' %>
+  <%= button_to "Delete", [@regi,@chart], method: :delete, class: "btn btn-outline-danger btn-sm col-md-1 mt-2", form: { data: { turbo_confirm: "Are you sure?" } } %>
+  </div>

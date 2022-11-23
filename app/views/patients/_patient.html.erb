@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-2">
       <b><%= f.label :vDate, "Updated on", class:"form-label" %></b>
-      <%= f.date_field :vDate, class: "form-control border-primary" %>
+      <%= f.date_field :vDate, value: @p.last.vDate, class: "form-control border-primary" %>
     </div>
     <div class="col-md-5">
       <%= f.label :street, "Street", class:"form-label" %><br />
@@ -210,9 +210,10 @@
     </div>
   </div>
 
-  <%= f.number_field :regi_id, value: @regi.id, type:'hidden' %>
 
+<br>
   <div class="actions">
-    <%= f.submit "Update Patient Info", class:'btn btn-dark' %>
-  </div>
+    <%= f.submit "Create", class:'btn btn-outline-primary btn-sm col-md-1' %>
 <% end %>
+    <%= link_to "Return", regi_patients_path, class:'btn btn-outline-info btn-sm col-md-1' %>
+  </div>

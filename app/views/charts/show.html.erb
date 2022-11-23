@@ -1,10 +1,4 @@
-<h1 class="text-center">View Patient Chart</h1>
+<h1 class="text-center">Patient Chart</h1>
 <%= render 'layouts/identifier' %>
-
-<%= link_to 'Edit', edit_regi_chart_path(@regi, @chart), class: 'btn btn-warning btn-sm col-md-1' %>
-
-<%= link_to 'Patient Charts', regi_charts_path(@regi), class: 'btn btn-success btn-sm' %>
-
-<%= button_to "Delete", [@regi,@chart], method: :delete, class: "btn btn-danger btn-sm mt-3 col-md-1", form: { data: { turbo_confirm: "Are you sure?" } } %>
  
 <%= render 'form' %>

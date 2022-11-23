@@ -218,11 +218,13 @@
       <%= f.number_field :pregWks, class: "form-control" %>
     </div>
   </div>
+ <br>
+  <div>
+    <%= f.submit "Update", class:'btn btn-outline-primary btn-sm col-md-1' %>
+<% end %>    
+    <%= link_to "Return", regi_patients_path, class:'btn btn-outline-info btn-sm col-md-1' %>
+    <%= button_to 'Delete', [@regi,@patient], method: :delete, class:"btn btn-outline-danger btn-sm col-md-1 mt-2", form: { data: { turbo_confirm: 'Are you sure?' }  } %>
 
-  
-  <div class="actions">
-    <%= f.submit "Update Patient Info", class:'btn btn-dark' %>
   </div>
-  
-<% end %>
+
 
