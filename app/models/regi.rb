@@ -9,4 +9,6 @@ class Regi < ApplicationRecord
   ['Other', 'Other']
 ]
 
+paginates_per 3
+
 end

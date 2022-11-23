@@ -59,4 +59,5 @@ class Patient < ApplicationRecord
     Bypolar_Disorder 
     Borderline_Personality_Disorder
   ]
+
 end

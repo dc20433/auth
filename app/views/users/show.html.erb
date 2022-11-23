@@ -1,0 +1,20 @@
+<div class="card mt-3 mx-auto border-primary" style="width: 30rem;">
+  <div class="card-title">
+    <img src="..." class="card-img-top" alt="">
+    <h2 class="text-center mt-1">
+      View User
+    </h2>
+  </div>
+
+  <div class="card-body">
+    
+    <div class="card-text">
+      <%= render 'user' %>
+    </div>
+  </div>
+    <div class="btn-group" role="group">
+      <%= link_to "Edit User", edit_user_path(@user), class:"btn btn-outline-primary" %> 
+      <%= link_to "Return to Users", users_path, class:"btn btn-outline-success" %>
+      <%= button_to "Delete this", user_path(@user), method: :delete, class:"btn btn-outline-danger" %>
+    </div>
+</div>

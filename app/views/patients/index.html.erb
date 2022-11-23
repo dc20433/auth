@@ -1,8 +1,11 @@
 <h1 class="text-center">Patient Information</h1>
 <%= render 'layouts/identifier' %>
-<br>
+
+<%= paginate @patients %>
+
 <%= link_to 'New Record', new_regi_patient_path, class:'btn btn-outline-success' %>
-<%= link_to 'Patient Listing', root_path, class:"btn btn-outline-primary" %>
+<%= link_to 'Patient Charts', regi_charts_path, class:"btn btn-outline-info" %>
+<%= link_to 'Patient Listing', regis_path, class:"btn btn-outline-primary" %>
 
 <table class="table table-striped table-hover">
   <thead>
@@ -57,3 +60,4 @@
   </tbody>
 </table>
 
+<%= paginate @patients %>

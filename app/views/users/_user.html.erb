@@ -1,0 +1,18 @@
+<% @u = User.where(id: params[:id]) %>
+
+<%= form_for @user do |f| %>
+
+  <div class="field">
+    <strong><%= f.label :name, 'Name:' %></strong>
+    <%= f.text_field :name, value: @u.last.name, class:"form-control form-control-sm border-primary" %>
+  </div>
+
+  <div class="field">
+    <strong><%= f.label :email, 'Email:' %></strong>
+    <%= f.email_field :email, value: @u.last.email, class:"form-control form-control-sm border-primary" %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-sm col-md-3 btn-dark mt-3" %>
+
+<% end %>
+

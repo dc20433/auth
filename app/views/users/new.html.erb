@@ -13,12 +13,28 @@
   <% end %>
 
 <%= form_with(model: @user) do |f| %>
-  <%# f.alert_message "Please fix the errors below.", error_summary: false %>
-  <b>Name: </b><%= f.text_field :name, class:"form-control" %><br>
-  Email: <%= f.email_field :email %><br>
-  <%# if @user.has_password? %>
-    Password: <%= f.password_field :password %><br>
-    Password Confirmation: <%= f.password_field :password_confirmatio %><br><br>
-  <%# end %>
-  <%= f.submit "Sign up" %>
+  <div class="field">
+    <strong><%= f.label :name, 'Name:' %></strong>
+    <%= f.text_field :name, class:"form-control form-control-sm border-primary" %>
+  </div>
+
+  <div class="field">
+    <strong><%= f.label :email, 'Email:' %></strong>
+    <%= f.text_field :email, class:"form-control form-control-sm border-primary" %>
+  </div>
+
+  <% if @user.has_password? %>
+    <div class="field">
+      <strong><%= f.label :password, 'Password:' %></strong>
+      <%= f.password_field :password, class:"form-control form-control-sm border-primary" %>
+    </div>
+
+    <div class="field">
+      <strong><%= f.label :password_confirmation, 'Confirm password:' %></strong>
+      <%= f.password_field :password_confirmation, class:"form-control form-control-sm border-primary" %>
+    </div>
+  <% end %>
+<br>
+  <%= f.submit "Sign Up", class:"btn btn-sm btn-outline-dark" %>
+
 <% end %>

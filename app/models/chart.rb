@@ -1,6 +1,6 @@
 class Chart < ApplicationRecord
   belongs_to :regi
-end
+
 
 SOAP = 
 [
@@ -19,3 +19,7 @@ Differential Diagnosis: Example: Problem 1 / Differential Diagnoses / Discussion
 Plan
 State of current/future testing / Medication needed / Specialist referral / Patient counseling"
 ]
+
+paginates_per 3
+
+end

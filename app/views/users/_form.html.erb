@@ -1,0 +1,15 @@
+<%= form_for(@user) do |f| %>
+
+<div class="field">
+  <strong><%= f.label :name, 'Name:' %></strong>
+    <%= f.text_field :name, class:"form-control form-control-sm border-primary" %>
+</div>
+
+<div class="field">
+  <strong><%= f.label :email, 'Email:' %></strong>
+    <%= f.email_field :email, class:"form-control form-control-sm border-primary" %>
+</div>
+
+<%= f.submit @user.persisted? ? "Update User" : "Create User" %>
+
+<% end %>

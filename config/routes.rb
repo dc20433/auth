@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
+  get "users" => "users#index"
 
   resources :users
   resources :sessions, except: [:edit, :update, :show, :new, :destroy]
@@ -11,9 +12,6 @@ Rails.application.routes.draw do
     resources :charts
     resources :patients
   end
-
-get 'insurance' => 'regis#insurance'
-
 
 root 'sites#home'
   

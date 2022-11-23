@@ -5,6 +5,7 @@ class PatientsController < ApplicationController
 
   # GET regis/1/patients
   def index
+    @patients = Patient.page params[:page]
   end
 
   # GET regis/1/patients/new
@@ -16,7 +17,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new patient_params
     if @regi.patients << @patient
-      redirect_to(regi_patients_path(@regi,@patient), notice: 'New Patient created.')
+      redirect_to(regi_patients_path(@regi,@patient), notice: 'Patient Record created.')
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +34,7 @@ class PatientsController < ApplicationController
   # PUT regis/1/patients/1
   def update
     if @patient.update patient_params
-      redirect_to(regi_patients_path(@regi), notice:'Patient updated.')
+      redirect_to(regi_patients_path(@regi), notice:'Patient Record updated.')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,7 +43,7 @@ class PatientsController < ApplicationController
   # DELETE regis/1/patients/1
   def destroy
     @patient.destroy
-    redirect_to regi_patients_path(@regi), alter:"Patient deleted"
+    redirect_to regi_patients_path(@regi), alter:"Patient Record deleted"
   end
 
   private

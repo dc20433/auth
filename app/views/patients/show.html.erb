@@ -2,9 +2,7 @@
   <%= render 'layouts/identifier' %>
 
   <%= link_to 'Edit', edit_regi_patient_path(@regi, @patient), class:'btn btn-warning btn-sm col-md-1' %> 
-
   <%= link_to 'Patient Info', regi_patients_path(@regi), class:'btn btn-success btn-sm' %>
-
   <%= button_to 'Delete', [@regi,@patient], method: :delete, class:'btn btn-danger btn-sm mt-3 col-md-1', form: { data: { turbo_confirm: 'Are you sure?' }  } %>
 
   <%= render 'form' %>

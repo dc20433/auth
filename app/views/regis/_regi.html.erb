@@ -2,31 +2,33 @@
 
 <%= form_for @regi do |f| %>
 
-<div class="field">
-  <strong><%= f.label :lastNm, 'Last Name:' %></strong>
-    <%= f.text_field :lastNm, value: @r.last.lastNm, class:"form-control form-control-sm border-primary" %>
-</div>
+  <div class="field">
+    <strong><%= f.label :lastNm, 'Last Name:' %></strong>
+      <%= f.text_field :lastNm, value: @r.last.lastNm, class:"form-control form-control-sm border-primary" %>
+  </div>
 
-<div class="field">
-  <strong><%= f.label :firstNm, 'First Name:' %></strong>
+  <div class="field">
+    <strong><%= f.label :firstNm, 'First Name:' %></strong>
     <%= f.text_field :firstNm, value: @r.last.firstNm, class:"form-control form-control-sm border-primary" %>
-</div>
+  </div>
 
-<div class="field">
-  <strong><%= f.label :init, 'M.Intial:' %></strong>
+  <div class="field">
+    <strong><%= f.label :init, 'M.Intial:' %></strong>
     <%= f.text_field :init, value: @r.last.init, class:"form-control form-control-sm border-primary" %>
-</div>
+  </div>
 
-<div class="field">
-  <strong><%= f.label :gender, 'Gender:' %></strong>
+  <div class="field">
+    <strong><%= f.label :gender, 'Gender:' %></strong>
     <%= f.text_field :gender, value: @r.last.gender, class:"form-control form-control-sm border-primary" %>
-</div>
+  </div>
 
-<div class="field">
-  <strong><%= f.label :dob, 'Date of Birth:' %></strong>
+  <div class="field">
+    <strong><%= f.label :dob, 'Date of Birth:' %></strong>
     <%= f.text_field :dob, value: @r.last.dob, class:"form-control form-control-sm border-primary" %>
-</div>
-    <%= f.submit "Submit", class: "btn btn-sm col-md-3 btn-dark mt-3" %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-sm col-md-3 btn-dark mt-3" %>
+  
 <% end %>
 
 

@@ -23,13 +23,13 @@
             </li>
             <li class="nav-item">
               <% if current_user %>
-                <%= link_to "Users", "#", class:"dropdown-item" %>
+                <%= link_to "Users", users_path, class:"dropdown-item" %>
               <% end %>
             </li>
           </ul>
         </li>
           <% if current_user %>
-            <%= link_to "<Currently logged in: #{current_user.name}>", user_path(current_user), class:"nav-link active" %>
+            <%= link_to "<< Current User: #{current_user.name} >>", user_path(current_user), class:"nav-link active" %>
           <% end %>
         </li>  
         <li class="nav-item">

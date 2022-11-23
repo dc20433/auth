@@ -5,6 +5,7 @@ class ChartsController < ApplicationController
 
   # GET regis/1/charts
   def index
+   
   end
 
   # GET regis/1/charts/new
@@ -16,7 +17,7 @@ class ChartsController < ApplicationController
   def create
     @chart = Chart.new chart_params
     if @regi.charts << @chart
-      redirect_to regi_charts_path(@regi,@chart), notice: 'New chart created.'
+      redirect_to regi_charts_path(@regi,@chart), notice: 'Patient Chart created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +34,7 @@ class ChartsController < ApplicationController
   # PUT regis/1/charts/1
   def update
     if @chart.update chart_params
-      redirect_to(regi_charts_path(@regi), notice: 'Chart updated.')
+      redirect_to(regi_charts_path(@regi), notice: 'Patient Chart updated.')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,7 +43,7 @@ class ChartsController < ApplicationController
   # DELETE regis/1/charts/1
   def destroy
     @chart.destroy
-    redirect_to regi_charts_path(@regi), alert: "Chart deleted."
+    redirect_to regi_charts_path(@regi), alert: "Patient Chart deleted."
   end
 
   private
