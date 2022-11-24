@@ -26,6 +26,11 @@
                 <%= link_to "Users", users_path, class:"dropdown-item" %>
               <% end %>
             </li>
+            <li class="nav-item">
+              <% if current_user %>
+                <%= link_to "Sign up User", signup_path, class:"dropdown-item" %>
+              <% end %>
+            </li>
           </ul>
         </li>
           <% if current_user %>
@@ -36,9 +41,6 @@
           <% if current_user %>
             <%= link_to "Log out", logout_path, class:"nav-link active" %>
           <% else %>
-        <li class="nav-item">
-          <%= link_to "Sign up", signup_path, class:"nav-link active" %>
-        </li>
         <li class="nav-item">
           <%= link_to "Log in", login_path, class:"nav-link active" %>
         </li>

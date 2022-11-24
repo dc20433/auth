@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :load_user, except: [:new, :index, :create]
 
   def index
-    @users = User.page params[:page]
+    @users = User.all
   end
   
   def show
