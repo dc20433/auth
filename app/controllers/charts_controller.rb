@@ -4,8 +4,7 @@ class ChartsController < ApplicationController
   before_action :set_chart, except: [:index, :new, :create]
 
   # GET regis/1/charts
-  def index
-   
+  def index 
   end
 
   # GET regis/1/charts/new

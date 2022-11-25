@@ -1,8 +1,6 @@
 <h1 class="text-center">Patient Records</h1>
 <%= render 'layouts/identifier' %>
 
-<%= paginate @patients %>
-
 <%= link_to 'New Record', new_regi_patient_path, class:'btn btn-outline-success' %>
 <%= link_to 'Patient Charts', regi_charts_path, class:"btn btn-outline-info" %>
 <%= link_to 'Patient Listing', regis_path, class:"btn btn-outline-primary" %>
@@ -59,5 +57,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= paginate @patients %>

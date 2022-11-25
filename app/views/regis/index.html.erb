@@ -1,8 +1,4 @@
-<div class='container'>
-
 <h1 class="text-center">Patient Listing</h1>
-
-<%= paginate @regis %>
 
 <%= link_to "New Patient", new_regi_path, class: "btn btn-outline-dark col-md-2" %>
 <%= link_to "Users", users_path, class: "btn btn-outline-info col-md-2" %>
@@ -19,7 +15,7 @@
       <th style="width:150px"></th>
     </tr>
   </thead>
-<% @regis.all.sort_by{ |h| h[:lastNm] }.each do |regi| %>
+<% @regis.sort_by{ |h| h[:lastNm] }.each do |regi| %>
   <tbody>
     <tr>
       <td><%= link_to regi.lastNm, regi_path(regi.id) %></td>
@@ -27,19 +23,11 @@
       <td><%= regi.init %></td>
       <td><%= regi.gender %></td>
       <td><%= regi.dob %></td>
-
-      <% regi.id %>
-      
       <td>
       <%= link_to 'Records', regi_patients_path(regi.id), class: "btn btn-outline-primary btn-sm" %>
       <%= link_to 'Charts', regi_charts_path(regi.id), class: "btn btn-outline-success btn-sm" %>
       </td>
-
     </tr>
-  </tbody>
   <% end %>
+  </tbody>
 </table>
-
-<%= paginate @regis %>
-
-</div>

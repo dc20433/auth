@@ -74,5 +74,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'kaminari'
 gem "local_time", "~> 2.1"

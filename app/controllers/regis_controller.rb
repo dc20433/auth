@@ -4,7 +4,7 @@ class RegisController < ApplicationController
 
   # GET /regis or /regis.json
   def index
-    @regis = Regi.page params[:page]
+    @regis = Regi.all
   end
 
   # GET /regis/new

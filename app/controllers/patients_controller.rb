@@ -5,7 +5,7 @@ class PatientsController < ApplicationController
 
   # GET regis/1/patients
   def index
-    @patients = Patient.page params[:page]
+    @patients = Patient.all
   end
 
   # GET regis/1/patients/new
