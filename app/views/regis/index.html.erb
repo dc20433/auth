@@ -9,33 +9,34 @@
 <br><br>
 
 <table class="table table-striped table-hover">
-
-  <tr>
-    <th>Last Name</th>
-    <th>First Name</th>
-    <th>M. Initial</th>
-    <th>Gender</th>
-    <th>Date of Birth</th>
-    <th style="width:150px"></th>
-  </tr>
-
+  <thead class="table-primary">
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>M. Initial</th>
+      <th>Gender</th>
+      <th>Date of Birth</th>
+      <th style="width:150px"></th>
+    </tr>
+  </thead>
 <% @regis.all.sort_by{ |h| h[:lastNm] }.each do |regi| %>
+  <tbody>
+    <tr>
+      <td><%= link_to regi.lastNm, regi_path(regi.id) %></td>
+      <td><%= regi.firstNm %></td>
+      <td><%= regi.init %></td>
+      <td><%= regi.gender %></td>
+      <td><%= regi.dob %></td>
 
-  <tr>
-    <td><%= link_to regi.lastNm, regi_path(regi.id) %></td>
-    <td><%= regi.firstNm %></td>
-    <td><%= regi.init %></td>
-    <td><%= regi.gender %></td>
-    <td><%= regi.dob %></td>
+      <% regi.id %>
+      
+      <td>
+      <%= link_to 'Records', regi_patients_path(regi.id), class: "btn btn-outline-primary btn-sm" %>
+      <%= link_to 'Charts', regi_charts_path(regi.id), class: "btn btn-outline-success btn-sm" %>
+      </td>
 
-    <% regi.id %>
-    
-    <td>
-    <%= link_to 'Records', regi_patients_path(regi.id), class: "btn btn-outline-primary btn-sm" %>
-    <%= link_to 'Charts', regi_charts_path(regi.id), class: "btn btn-outline-success btn-sm" %>
-    </td>
-
-  </tr>
+    </tr>
+  </tbody>
   <% end %>
 </table>
 

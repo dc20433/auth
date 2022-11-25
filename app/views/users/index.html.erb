@@ -5,7 +5,7 @@
     <%= link_to "New User", new_user_path, class:"btn btn-outline-success" %>
     <%= link_to "Patient Listing", regis_path, class:"btn btn-outline-primary" %>
   </div>
-  <thead>
+  <thead class="table-primary">
     <tr>
       <th class="col col-md-2">Name</th>
       <th class="col col-md-2">Email</th>
@@ -17,7 +17,7 @@
     <tr>
       <td><%= link_to_unless_current user.name, user_path(user.id) %></td>
       <td><%= user.email %></td>
-      <td><%= user.name == current_user.name ? "Yes" : "No" %></td>
+      <td><%= user.name == current_user.name ? "Yes" : "-" %></td>
     </tr>
     <% end %>
   </tbody>

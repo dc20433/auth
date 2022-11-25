@@ -20,6 +20,4 @@ Plan
 State of current/future testing / Medication needed / Specialist referral / Patient counseling"
 ]
 
-paginates_per 3
-
 end
